@@ -18,3 +18,21 @@ def get_num_char(file_contents):
             char_dict[char] = 1
     
     return char_dict
+
+# Takes dict and returns the key value
+# Used as the key for sort method
+def sort_on(dict):
+    return dict["count"]
+
+# Converts dict to list and sorts
+def sort_dict(char_dict):
+    sorted_list = []
+    
+    for key, value in char_dict.items():
+        if key.isalpha():
+            add_entry = {"char": key, "count": value}
+            sorted_list.append(add_entry)
+    
+    sorted_list.sort(reverse=True, key=sort_on)
+
+    return sorted_list
